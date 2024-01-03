@@ -1,0 +1,33 @@
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.title {
+  color: var(--tarawera-blue-color);
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+
+.title-highlight {
+  color: var(--tarawera-blue-color);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.rules {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rule {
+  font-weight: 400;
+}
+
+.rule-highlight {
+  color: var(--tarawera-blue-color);
+  font-weight: 700;
+}

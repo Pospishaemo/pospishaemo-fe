@@ -1,0 +1,29 @@
+<ngx-smart-modal [identifier]="MODAL_IDS.LOGIN">
+  <div class="login">
+    <div class="login-content">
+      <form [formGroup]="loginForm" class="login-content__form form">
+        <label class="form-label field">
+          <span class="field-title">Email</span>
+          <input formControlName="email" placeholder="Enter Email" type="text" class="field-input">
+          @if (loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.touched) {
+            <span class="validation-error">Поле "Email" обов'язкове</span>
+          } @else if (loginForm.get('email')?.errors?.['email'] && loginForm.get('email')?.touched) {
+            <span class="validation-error">Email невірний</span>
+          }
+        </label>
+        <label class="form-label field">
+          <span class="field-title">Password</span>
+          <input formControlName="password" placeholder="Password" type="password" class="field-input">
+          @if (loginForm.get('password')?.errors?.['required'] && loginForm.get('password')?.touched) {
+            <span class="validation-error">Поле "Password" обов'язкове</span>
+          } @else if (loginForm.get('password')?.errors?.['minlength'] && loginForm.get('password')?.touched) {
+            <span class="validation-error">Мінімальна довжина паролю - {{passwordMinLength}} символів</span>
+          }
+        </label>
+        <button class="form-button" (click)="onSubmit()">
+          <span class="form-button__text">Ввійти</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</ngx-smart-modal>

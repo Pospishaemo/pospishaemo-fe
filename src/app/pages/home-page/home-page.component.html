@@ -1,0 +1,121 @@
+<main class="main">
+  <div class="main-content">
+    <section class="main-content__hero hero">
+      <div class="hero-wrapper">
+        <div class="hero-content">
+          <div class="hero-content__title">
+            <h1 class="hero-content__title-text">Поспішаємо - крок до впевненості на дорозі!</h1>
+          </div>
+          <div class="hero-content__services services">
+            <div class="services-content">
+              <div class="services-content__title">
+                <h2 class="services-content__title-text">Наші послуги:</h2>
+              </div>
+              <ul class="services-content__list">
+                @for (service of services; track service.id) {
+                  <li class="services-content__list-item service">
+                    <div class="service-content">
+                      <div class="service-content__icon">
+                        <img [src]="service.iconPath" [alt]="'service icon ' + service.id" class="service-content__icon-img">
+                      </div>
+                      <div class="service-content__text">
+                        <span class="service-content__text-name">{{service.name}}</span>
+                      </div>
+                    </div>
+                  </li>
+                }
+              </ul>
+            </div>
+          </div>
+          <div class="hero-content__image">
+            <img src="assets/images/car.png" alt="car" class="hero-content__image-car">
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="privileges">
+      <div class="privileges-wrapper">
+        <div class="privileges-content">
+          <ul class="privileges-content__list">
+            @for (privilege of privileges; track privilege.id) {
+              <li class="privileges-content__list-item privilege">
+                <div class="privilege-content">
+                  <div class="privilege-content__title">
+                    <h3 class="privilege-content__title-text">{{privilege.title}}</h3>
+                  </div>
+                  <div class="privilege-content__description">
+                    <p class="privilege-content__description-text">{{privilege.description}}</p>
+                  </div>
+                </div>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="reviews">
+      <div class="reviews-wrapper">
+        <div class="reviews-content">
+          <div class="reviews-content__title">
+            <h3 class="reviews-content__title-text">Відгуки</h3>
+          </div>
+          <ul class="reviews-content__list">
+            @for (review of reviews; track review.id) {
+              <li class="reviews-content__list-item review">
+                <div class="review-content">
+                  <div class="review-content__user review-user">
+                    <div class="review-user-left">
+                      <div class="review-user__photo">
+                        <img [src]="review.userAvatar" alt="Аватарка автора комменту" class="review-user__photo-img">
+                      </div>
+                    </div>
+                    <div class="review-user-right">
+                      <div class="review-user__info">
+                        <p class="review-user__info-name">{{review.username}}</p>
+                        <p class="review-user__info-job">{{review.job}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="review-content__user-text">{{review.text}}</div>
+                </div>
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="contact">
+      <div class="contact-wrapper">
+        <h3 class="contact-title">Напишіть нам</h3>
+        <div class="contact-content">
+          <div class="contact-content__image">
+            <img src="assets/images/car-mers.png" alt="Машина мерседес візуал" class="contact-content__image-car">
+          </div>
+          <form class="contact-content__form contact-form" [formGroup]="contactForm">
+            <label class="form-label field">
+              <input formControlName="fullName" placeholder="ПІБ" type="text" class="field-input">
+              @if (contactForm.get('fullName')?.errors?.['required'] && contactForm.get('fullName')?.touched) {
+                <span class="validation-error">Поле "ПІБ" обов'язкове</span>
+              }
+            </label>
+            <label class="form-label field">
+              <input formControlName="contactInfo" placeholder="Номер телефону / email" type="text" class="field-input">
+              @if (contactForm.get('contactInfo')?.errors?.['required'] && contactForm.get('contactInfo')?.touched) {
+                <span class="validation-error">Поле "Контактна інформація" обов'язкове</span>
+              }
+            </label>
+            <label class="form-label field">
+              <textarea rows="10" formControlName="message" placeholder="Питання" type="text" class="field-input"></textarea>
+              @if (contactForm.get('message')?.errors?.['required'] && contactForm.get('message')?.touched) {
+                <span class="validation-error">Поле "Питання" обов'язкове</span>
+              }
+            </label>
+            <button class="form-button" (click)="onContactSubmit()">
+              <span class="form-button__text">НАДІСЛАТИ</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

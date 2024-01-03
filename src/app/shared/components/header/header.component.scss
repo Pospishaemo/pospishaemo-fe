@@ -1,0 +1,79 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--white-color);
+  z-index: 999;
+
+  &-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 10px 20px;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__left {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    &__logo {
+      cursor: pointer;
+
+      &-name {
+        color: #000;
+        font-family: 'Alegreya SC', sans-serif;
+        font-size: 32px;
+        font-weight: 400;
+      }
+    }
+
+    &__menu {
+    }
+
+    &__login {
+      cursor: pointer;
+      padding: 10px 15px;
+      background-color: var(--tarawera-blue-color);
+
+      &-text {
+        color: var(--white-color);
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.menu {
+  &-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.item {
+  &-content {
+    &__link {
+      display: inline-block;
+      padding: 10px 15px;
+
+      &-text,
+      &-text:visited,
+      &-text:active, {
+        color: var(--denim-blue-color);
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+    }
+  }
+}
+

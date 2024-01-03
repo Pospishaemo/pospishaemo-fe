@@ -1,0 +1,12 @@
+<!-- TODO: REFACTOR -->
+@if (paragraphsData) {
+  <div class="wrapper">
+    <div class="title"> <span class="title-highlight">Розділ {{paragraphsData.sectionNumber}}.</span> {{paragraphsData.name}}</div>
+    <ul class="rules">
+      @for(rule of paragraphsData.paragraphs; track rule.fullParagraphNumber) {
+        <li class="rule">
+          <span class="rule-highlight">{{rule.fullParagraphNumber}}. </span>{{rule.text}}</li>
+      }
+    </ul>
+  </div>
+}

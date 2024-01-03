@@ -1,0 +1,21 @@
+<main class="main">
+  <div class="main-wrapper">
+    <div class="main-content">
+      <div class="main-content__sections sections">
+        <h2 class="sections-title">Правила дорожнього руху</h2>
+        <ul class="sections-list">
+          @for (section of sections; track section.id) {
+            <li class="sections-list__item section" [routerLink]="'/sections/traffic-rules/' + section.id">
+              <div class="section-content">
+                <div class="section-content__title">
+                  <span class="section-content__title-number">Розділ {{section.sectionNumber}}. </span>
+                  <span class="section-content__title-name">{{section.name}}</span>
+                </div>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>

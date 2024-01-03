@@ -1,0 +1,52 @@
+.main {
+  &-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  &-content {
+    &__sections {
+    }
+  }
+}
+
+.sections {
+  &-title {
+    font-size: 24px;
+    font-weight: 700;
+    padding-bottom: 20px;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__item {
+    }
+  }
+}
+
+.section {
+  cursor: pointer;
+
+  padding: 15px 40px;
+  border-radius: 5px;
+  background: #D9D9D9;
+
+  &-content {
+    &__title {
+      &-number {
+        color: var(--tarawera-blue-color);
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      &-name {
+        color: var(--black-color);
+        font-size: 16px;
+      }
+    }
+  }
+}

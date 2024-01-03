@@ -1,0 +1,38 @@
+<header class="header">
+  <div class="header-wrapper">
+    <div class="header-content">
+      <div class="header-content__left">
+        <div class="header-content__logo" [routerLink]="''">
+          <h2 class="header-content__logo-name">Поспішаємо</h2>
+        </div>
+        <nav class="header-content__menu menu">
+          <ul class="menu-list">
+            @for (menuItem of menu; track menuItem.id) {
+              <li class="menu-list__item item">
+                <div class="item-content">
+                  <a [routerLink]="menuItem.link" class="item-content__link">
+                    <span class="item-content__link-text">{{menuItem.name}}</span>
+                  </a>
+                </div>
+              </li>
+            }
+          </ul>
+        </nav>
+      </div>
+      <div class="header-content__right">
+        @if (isLoggedIn) {
+          <div class="header-content__user">
+            <div class="header-content__user-name">{{user.username}}</div>
+          </div>
+        } @else {
+          <div class="header-content__login" (click)="onLoginClick()">
+            <div class="header-content__login-text">Ввійти</div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</header>
+
+<app-login-modal></app-login-modal>
+<app-registration-modal></app-registration-modal>

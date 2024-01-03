@@ -1,0 +1,38 @@
+<main class="main">
+  <div class="main-wrapper">
+    <div class="main-content">
+      <ul class="main-content__tests tests">
+        @for (question of questions; track question.id; let index = $index) {
+          <li class="tests-item test">
+            <div class="test-content">
+              <div class="test-content__question">
+                <span class="test-content__question-text">{{index + 1}}. {{question.question}}</span>
+              </div>
+              <div class="test-content__answers">
+                @for (answer of question.answers; track answer.id) {
+                  <label
+                    class="test-content__answers-item answer"
+                    [ngClass]="[correctAnswers[answer.id] ? 'correct' : answers[question.id] === answer.id && isSubmitted ? 'incorrect' : '']"
+                  >
+                    <input
+                      (click)="onVariantChange(question.id, answer.id)"
+                      [disabled]="isSubmitted"
+                      [name]="question.id"
+                      [value]="answer.id"
+                      class="answer-input"
+                      type="radio"
+                    />
+                    <span class="answer-text">{{answer.text}}</span>
+                  </label>
+                }
+              </div>
+            </div>
+          </li>
+        }
+      </ul>
+      <div class="main-content__submit">
+        <button class="main-content__submit-btn" (click)="onSubmit()">Переглянути відповіді</button>
+      </div>
+    </div>
+  </div>
+</main>

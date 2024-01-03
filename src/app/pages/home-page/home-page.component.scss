@@ -1,0 +1,281 @@
+@import "../../../mixins";
+
+.hero {
+  background-color: var(--dodger-blue-color);
+  margin-bottom: -75px;
+
+  &-wrapper {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &-content {
+    display: grid;
+    grid-template-columns: 30fr 70fr;
+    grid-template-rows: auto 346px;
+    grid-template-areas: 'title title' 'services image';
+    gap: 20px;
+
+    &__title {
+      grid-area: title;
+
+      text-align: center;
+      padding: 60px 0 65px;
+
+      &-text {
+        font-size: 40px;
+        font-weight: 700;
+        color: var(--white-color);
+      }
+    }
+
+    &__services {
+      grid-area: services;
+    }
+
+    &__image {
+      grid-area: image;
+      position: relative;
+
+      &-car {
+        position: absolute;
+        width: 100%;
+        top: -40px;
+      }
+    }
+  }
+}
+
+.services {
+  &-content {
+    &__title {
+      &-text {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--white-color);
+        padding-bottom: 15px;
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &-item {
+      }
+    }
+  }
+}
+
+.service {
+  &-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &__icon {
+      &-img {
+        width: 27px;
+        height: 27px;
+        object-fit: contain;
+      }
+    }
+
+    &__text {
+      &-name {
+        font-size: 20px;
+        font-weight: 400;
+        color: var(--white-color);
+      }
+    }
+  }
+}
+
+
+.privileges {
+  &-wrapper {
+    max-width: 1440px;
+    margin: 200px auto 0;
+    padding: 0 20px 90px;
+  }
+
+  &-content {
+    &__list {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      &-item {
+      }
+    }
+  }
+}
+
+.privilege {
+  &-content {
+    max-width: 350px;
+    text-align: center;
+
+    &__title {
+      padding-bottom: 10px;
+
+      &-text {
+        color: var(--black-color);
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+
+    &__description {
+      &-text {
+        color: var(--black-color);
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.reviews {
+  background-color: var(--dodger-blue-color);
+
+  &-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 30px 20px 50px;
+  }
+
+  &-content {
+    &__title {
+      &-text {
+        color: var(--white-color);
+        font-size: 24px;
+        font-weight: 700;
+        padding-bottom: 20px;
+      }
+    }
+
+    &__list {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 52px;
+    }
+  }
+}
+
+.review {
+  flex: 0 1 50%;
+
+  padding: 20px;
+  border-radius: 5px;
+  background-color: var(--gallery-grey-color);
+
+  &-content {
+    &__user {
+      &-text {
+        color: var(--black-color);
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.review-user {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 10px;
+
+  &-left {
+  }
+
+  &-right {
+  }
+
+  &__photo {
+    &-img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+
+  &__info {
+    &-name {
+      color: var(--dodger-blue-color);
+      font-size: 20px;
+      font-weight: 500;
+      padding-bottom: 5px;
+    }
+
+    &-job {
+      color: var(--black-color);
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}
+
+.contact {
+
+  &-title {
+    color: var(--black-color);
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__image {
+      flex: 0 1 60%;
+      &-car {
+      }
+    }
+
+    &__form {
+      flex: 0 1 40%;
+    }
+  }
+}
+
+.contact-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 70px 20px 75px;
+}
+
+.contact-form {
+  @include authorizationForm;
+  gap: 10px;
+}
+
+.form-label {
+}
+
+.field {
+}
+
+.field-input {
+}
+
+.validation-error {
+}
+
+.form-button {
+  border-radius: 5px;
+  background: var(--tarawera-blue-color);
+  cursor: pointer;
+
+  &__text {
+    color: var(--white-color);
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
