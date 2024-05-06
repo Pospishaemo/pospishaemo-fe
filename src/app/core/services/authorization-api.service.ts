@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EnvironmentService } from './environment.service';
 import {
@@ -9,6 +9,7 @@ import {
 	Response,
 	TokensData,
 } from '../interfaces';
+import { TokensService } from './tokens.service';
 
 @Injectable({
 	providedIn: 'root',
@@ -17,6 +18,7 @@ export class AuthorizationApiService {
 	constructor(
 		private environmentService: EnvironmentService,
 		private http: HttpClient,
+    private tokensService: TokensService
 	) {}
 
 	loginRequest(
@@ -27,6 +29,15 @@ export class AuthorizationApiService {
 			userData,
 		);
 	}
+
+  refreshUserDataRequest() {
+    return this.http.get<Response<AuthorizationResponse>>(
+      `${this.environmentService.environment.apiUrl}/auth/user-data`,
+      {
+        headers: new HttpHeaders().set('authorization', `Bearer ${this.tokensService.accessToken!}`)
+      }
+    );
+  }
 
 	registrationRequest(
 		userData: RegistrationForm,

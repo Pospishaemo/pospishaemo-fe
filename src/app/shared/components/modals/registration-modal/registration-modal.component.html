@@ -1,3 +1,36 @@
 <ngx-smart-modal [identifier]="MODAL_IDS.REGISTRATION">
-  liog
+  <div class="login">
+    <div class="login-content">
+      <form [formGroup]="registrationForm" class="login-content__form form">
+        <label class="form-label field">
+          <span class="field-title">Email</span>
+          <input formControlName="email" placeholder="Enter Email" type="text" class="field-input">
+          @if (registrationForm.get('email')?.errors?.['required'] && registrationForm.get('email')?.touched) {
+            <span class="validation-error">Поле "Email" обов'язкове</span>
+          } @else if (registrationForm.get('email')?.errors?.['email'] && registrationForm.get('email')?.touched) {
+            <span class="validation-error">Email невірний</span>
+          }
+        </label>
+        <label class="form-label field">
+          <span class="field-title">Password</span>
+          <input formControlName="password" placeholder="Password" type="password" class="field-input">
+          @if (registrationForm.get('password')?.errors?.['required'] && registrationForm.get('password')?.touched) {
+            <span class="validation-error">Поле "Password" обов'язкове</span>
+          } @else if (registrationForm.get('password')?.errors?.['minlength'] && registrationForm.get('password')?.touched) {
+            <span class="validation-error">Мінімальна довжина паролю - {{passwordMinLength}} символів</span>
+          }
+        </label>
+        <label class="form-label field">
+          <span class="field-title">Username</span>
+          <input formControlName="username" placeholder="Username" type="text" class="field-input">
+          @if (registrationForm.get('username')?.errors?.['required'] && registrationForm.get('username')?.touched) {
+            <span class="validation-error">Поле "Username" обов'язкове</span>
+          }
+        </label>
+        <button class="form-button" (click)="onSubmit()">
+          <span class="form-button__text">Зареєструватись</span>
+        </button>
+      </form>
+    </div>
+  </div>
 </ngx-smart-modal>

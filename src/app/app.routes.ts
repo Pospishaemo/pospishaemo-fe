@@ -9,6 +9,7 @@ import { TrafficRuleSectionsPageComponent } from './pages/traffic-rule-sections-
 import { TrafficRuleParagraphsPageComponent } from './pages/traffic-rule-paragraphs-page/traffic-rule-paragraphs-page.component';
 import { RoadSignSectionsPageComponent } from './pages/road-sign-sections-page/road-sign-sections-page.component';
 import { RoadSignParagraphsPageComponent } from './pages/road-sign-paragraphs-page/road-sign-paragraphs-page.component';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
 	{
@@ -26,6 +27,7 @@ export const routes: Routes = [
 		title: 'Секції',
 		path: 'sections',
 		component: SectionsPageComponent,
+    canActivate: [authGuard],
 		children: [
 			{
 				title: 'Правила дорожнього руху',

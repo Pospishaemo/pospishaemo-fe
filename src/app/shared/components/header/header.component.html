@@ -21,12 +21,17 @@
       </div>
       <div class="header-content__right">
         @if (isLoggedIn) {
+          <progress class="progress" max="100" [value]="countPercent"></progress>
+
           <div class="header-content__user">
             <div class="header-content__user-name">{{user.username}}</div>
           </div>
         } @else {
           <div class="header-content__login" (click)="onLoginClick()">
             <div class="header-content__login-text">Ввійти</div>
+          </div>
+          <div class="header-content__login" (click)="onRegistrationClick()">
+            <div class="header-content__login-text">Зареєструватись</div>
           </div>
         }
       </div>

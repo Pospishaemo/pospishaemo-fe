@@ -11,6 +11,15 @@
                   <span class="section-content__title-number">Розділ {{section.sectionNumber}}. </span>
                   <span class="section-content__title-name">{{section.name}}</span>
                 </div>
+                <div class="section-content__check">
+                    <button (click)="toggle(section.id, $event)" class="section-content__check-button">
+                      @if (section.isLearned) {
+                        Mark as not learned
+                      } @else {
+                        Marl as learned
+                      }
+                    </button>
+                </div>
               </div>
             </li>
           }

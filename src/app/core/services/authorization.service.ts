@@ -32,7 +32,7 @@ export class AuthorizationService {
 		this.isLoggedIn$$.next(isLoggedIn);
 	}
 
-	private get isLoggedIn(): boolean {
+	public get isLoggedIn(): boolean {
 		return this.isLoggedIn$$.getValue();
 	}
 
@@ -70,6 +70,18 @@ export class AuthorizationService {
 		});
 	}
 
+  refreshUserData() {
+    this.authorizationApiService.refreshUserDataRequest().subscribe({
+      next: (response: any) => {
+        console.log(response.data);
+        if (response.success) {
+          this.store.dispatch(new SetUserData(response.data));
+          this.modalService.closeAll();
+        }
+      },
+    })
+  }
+
 	registration(userData: RegistrationForm) {
 		this.authorizationApiService.registrationRequest(userData).subscribe({
 			next: (response: Response<AuthorizationResponse>) => {
@@ -78,6 +90,7 @@ export class AuthorizationService {
 					this.store.dispatch(new SetUserData(response.data.user));
 
 					this.isLoggedIn = true;
+          this.modalService.closeAll();
 				}
 			},
 		});
